@@ -14,3 +14,4 @@ for i in lis:
         else:
             score = 0
     print(count)
+    
