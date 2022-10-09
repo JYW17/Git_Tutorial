@@ -1,17 +1,16 @@
-num = int(input())
-lis = list()
+case = int(input())
 
-for i in range(num):
-    lis.append(input())
-
-for i in lis:
-    count = 0
-    score = 0
-    for j in i:
-        if j == "O":
-            score += 1
-            count += score
-        else:
-            score = 0
-    print(count)
+for i in range(case):
+    k = int(input())
+    n = int(input())
     
+    
+    lis = [([0 for j in range(n)]) for p in range(k+1)]
+    
+    for j in range(n):
+        lis[0][j] = j+1
+    for j in range(1,k+1):
+        lis[j][0] = 1
+        for p in range(1,n):
+            lis[j][p] = lis[j][p-1] + lis[j-1][p]
+    print(lis[k][n-1])
